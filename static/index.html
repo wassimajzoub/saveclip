@@ -713,6 +713,11 @@
       resultCard.classList.add('visible');
       downloadBtn.disabled = false;
 
+      // Auto-download the file to user's computer
+      if (currentTaskId) {
+        window.location.href = '/api/file/' + currentTaskId;
+      }
+
       // Save to history
       addToHistory({
         title: data.title || 'Video',
