@@ -75,95 +75,7 @@
       padding: 60px 24px 80px;
     }
 
-    /* ─── Header ─────────────────────────────────────────────── */
-    .header { text-align: center; margin-bottom: 48px; }
-
-    .logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 20px;
-    }
-    .logo-icon {
-      width: 48px;
-      height: 48px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      box-shadow: 0 8px 32px var(--accent-glow);
-    }
-    .logo-text {
-      font-size: 28px;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      background: linear-gradient(135deg, var(--text) 40%, var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .subtitle {
-      color: var(--text-muted);
-      font-size: 16px;
-      line-height: 1.6;
-      max-width: 420px;
-      margin: 0 auto;
-    }
-
-    /* ─── Platform Badges ────────────────────────────────────── */
-    .platforms {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 20px;
-    }
-    .platform-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 14px;
-      border-radius: 100px;
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text-muted);
-      transition: all 0.2s;
-    }
-    .platform-badge svg { width: 16px; height: 16px; }
-    .platform-badge.active { border-color: var(--accent); color: var(--text); background: rgba(124,92,255,0.1); }
-
-    /* ─── Download Card ──────────────────────────────────────── */
-    .download-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px;
-      margin-bottom: 24px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.2);
-    }
-
-    .input-group {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 8px;
-    }
-    .input-wrapper {
-      flex: 1;
-      position: relative;
-    }
-    .url-input {
-      width: 100%;
-      padding: 14px 18px 14px 46px;
-      background: var(--surface-2);
-      border: 2px solid var(--border);
-      border-radius: var(--radius-sm);
-      color: var(--text);
-      font-size: 15px;
-      font-family: inherit;
-      outline: none;
+    /* ─── Header ───�e;
       transition: border-color 0.2s, box-shadow 0.2s;
     }
     .url-input::placeholder { color: var(--text-muted); opacity: 0.6; }
@@ -321,28 +233,6 @@
       gap: 2px;
     }
 
-    .btn-save {
-      width: 100%;
-      padding: 12px;
-      background: linear-gradient(135deg, var(--success), #059669);
-      border: none;
-      border-radius: var(--radius-sm);
-      color: #fff;
-      font-size: 15px;
-      font-weight: 600;
-      font-family: inherit;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      transition: all 0.25s;
-    }
-    .btn-save:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 16px rgba(52,211,153,0.3);
-    }
-    .btn-save svg { width: 18px; height: 18px; }
 
     /* Error */
     .error-msg {
@@ -549,10 +439,6 @@
               </div>
             </div>
           </div>
-          <button class="btn-save" id="saveBtn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Save Video
-          </button>
         </div>
 
         <!-- Error -->
@@ -617,7 +503,6 @@
     const resultTitle = document.getElementById('resultTitle');
     const resultUploader = document.getElementById('resultUploader');
     const resultSize = document.getElementById('resultSize');
-    const saveBtn = document.getElementById('saveBtn');
     const errorMsg = document.getElementById('errorMsg');
     const errorText = document.getElementById('errorText');
     const historySection = document.getElementById('historySection');
@@ -756,13 +641,6 @@
       downloadBtn.disabled = false;
     }
 
-    // ─── Save/Download ─────────────────────────────────────────
-    saveBtn.addEventListener('click', () => {
-      if (currentTaskId) {
-        window.location.href = `/api/file/${currentTaskId}`;
-      }
-    });
-
     // ─── History ───────────────────────────────────────────────
     function addToHistory(item) {
       history = [item, ...history.filter(h => h.url !== item.url)].slice(0, 10);
@@ -819,4 +697,3 @@
   </script>
 </body>
 </html>
-
