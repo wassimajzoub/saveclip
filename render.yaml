@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: saveclip
+    runtime: docker
+    plan: free
+    healthCheckPath: /
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11"
